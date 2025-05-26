@@ -1,11 +1,29 @@
-pipeline {
-    agent any
 
+///pipeline {
+///    agent any
+
+///    stages {
+///        stage('Ejecutar Script') {
+///            steps {
+///                sh 'chmod +x run.sh && ./run.sh'
+///            }
+///        }
+///    }
+///}
+
+pipeline {
+    agent {
+        docker {
+            image 'python:3.11'
+        }
+    }
     stages {
-        stage('Ejecutar Script') {
+        stage('Run Python script') {
             steps {
-                sh 'chmod +x run.sh && ./run.sh'
+                sh 'python --version'
+                // aquí más comandos Python
             }
         }
     }
 }
+
