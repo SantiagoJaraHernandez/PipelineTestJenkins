@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage('Ejecutar') {
+        stage('Ejecutar Script') {
             steps {
-                sh 'python hello.py'
+                sh 'chmod +x run.sh && ./run.sh'
             }
         }
     }
